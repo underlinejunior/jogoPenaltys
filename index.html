@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penaltys Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+</head>
+
+<body onKeyPress="tecla_pressionada(event)" id="body">
+    <div>
+        <div id="banner">
+            <p id="regra">Aperte <span>ENTER</span> pra começara jogar</p>
+        </div>
+        <div id="placar">
+        </div>
+        <div id="gol">
+            <img src="assets/gol.jpg" alt="fundo_gol" id="gol">
+            <h1 id="title">JOGO DE PENALTYS</h1>
+            <img src="assets/bola.png" alt="bola" id="bola">
+            <img src="assets/alvo1.png" alt="chute aqui" class="alvo" id="position1">
+            <img src="assets/alvo2.png" alt="chute aqui" class="alvo" id="position2">
+            <img src="assets/alvo3.png" alt="chute aqui" class="alvo" id="position3">
+            <img src="assets/alvo4.png" alt="chute aqui" class="alvo" id="position4">
+            <img src="assets/alvo5.png" alt="chute aqui" class="alvo" id="position5">
+        </div>
+        <div id="goleiro">
+            <img src="assets/goleiro.png" alt="Goleiro" id="corpo">
+            <img src="assets/meGoleiro.png" alt="meGoleiro" name ="me" class='me' id="position01">
+            <img src="assets/mdGoleiro.png" alt="mdGoleiro" name="md" class='md' id="position02">
+        </div>
+    </div>
+
+    <script type="text/javascript" src="penalti.js"></script>
+</body>
+
+</html>

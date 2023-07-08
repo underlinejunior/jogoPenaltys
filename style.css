@@ -1,0 +1,126 @@
+body{
+    text-align: center;
+    overflow: hidden;
+}
+div#banner{
+    text-align: center;
+}
+div#banner #regra{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top:-1%;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+div#gol >img#gol{
+    width: 100%;
+}
+div#gol > h1#title{
+    position: absolute;
+    top: 68%;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    text-shadow: 2px 2px 2px black;
+}
+div#gol >img#bola{
+    position: absolute;
+    width: 8%;
+    top:83%;
+    left:45%;
+    z-index:2;
+}
+#position1{
+    width: 5vw;
+    position: absolute;
+    top:6vw;
+    left:18.2vw;
+}
+#position2{
+    width: 5vw;
+    position: absolute;
+    top:29.7vw;
+    left:18.2vw;
+}
+#position3{
+    width: 5vw;
+    position: absolute;
+    top:6vw;
+    left:75.3vw;
+}
+#position4{
+    width: 5vw;
+    position: absolute;
+    top:29.7vw;
+    left:75.3vw;
+}
+#position5{
+    width: 5vw;
+    position: absolute;
+    top:18vw;
+    left:48vw;
+
+}
+div#gol>img.alvo{
+    width:5vw;
+    z-index:2;
+}
+div#gol>img.none{
+    display:none;
+}
+div#gol>img.alvo{
+    display: flex;
+}
+
+div#placar{
+    border:0.5rem solid white;
+    border-radius: 1rem;
+    box-shadow: -3px 3px 3px black;
+    width:10rem;
+    height: 5rem;
+    position:absolute;
+    top:2rem;
+    left:2rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    color:white;
+    background-color: black;
+    padding:1rem;
+}
+
+
+div#goleiro{
+    position:flex;
+    width: 50%;
+    top:0;
+    left:0;
+}
+div#goleiro>img#corpo{
+    position:absolute;
+    width: 8vw;
+    top:25vw;
+    left:45vw;
+    z-index: 1;
+}
+
+#position01{
+    position:absolute;
+    width: 5vw;
+    top:27vw;
+    left:40vw;
+    z-index: 1;
+}
+
+#position02{
+    position:absolute;
+    width: 5vw;
+    top:27vw;
+    left:53vw;
+    z-index: 1;
+}
