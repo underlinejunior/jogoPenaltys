@@ -1,7 +1,13 @@
 function fimDeJogo() {
     document.getElementById("regra").style.color = "black";
     document.getElementById("title").innerHTML = '';
-    document.getElementById('regra').innerHTML = 'FIM DE JOGO!';
+    if (placarJogador == placarMaquina) {
+        document.getElementById('regra').innerHTML = 'FIM DE JOGO!<br/> O jogo terminou Empate!';
+    } else if (placarJogador > placarMaquina) {
+        document.getElementById('regra').innerHTML = 'FIM DE JOGO!<br/> Parabéns,você venceu!';
+    } else {
+        document.getElementById('regra').innerHTML = 'FIM DE JOGO!<br/> Não era seu dia!';
+    }
     document.getElementById("bola").style.display = 'none';
     document.getElementById('corpo').style.display = 'none';
     Array.from(document.getElementsByClassName('me')).forEach(elem => elem.style.display = 'none');
@@ -10,14 +16,6 @@ function fimDeJogo() {
     for (let i = 1; i <= 5; i++) {
         document.getElementById(`position${i}`).style.display = "none";
     }
-}
-
-function limpa() {
-    for (let i = 1; i <= 5; i++) {
-        document.getElementById(`position${i}`).setAttribute('src', `alvo${i}.png`);
-        document.getElementById(`position${i}`).style.display = "absolute";
-    }
-    document.getElementById("bola").setAttribute('id', 'bola');
 }
 
 let chutePlayer = 0,
@@ -34,11 +32,17 @@ function chuteJogador(gol) {
     chutePlayer = parseInt(gol);
     console.log("chute Jogador: " + chutePlayer);
     if (chutePlayer > 0 && chutePlayer < 6) {
-        let chute = `position${gol}`;
-        document.getElementById(chute).setAttribute('src', 'assets/bola.png');
-        setTimeout(() => {
-            document.getElementById(chute).setAttribute('src', `assets/alvo${gol}.png`);
-        }, 1500)
+        if (chutePlayer == 1) {
+            document.getElementById('bola').setAttribute('id', 'position1');
+        } else if (chutePlayer == 2) {
+            document.getElementById('bola').setAttribute('id', 'position2');
+        } else if (chutePlayer == 3) {
+            document.getElementById('bola').setAttribute('id', 'position3');
+        } else if (chutePlayer == 4) {
+            document.getElementById('bola').setAttribute('id', 'position4');
+        } else if (chutePlayer == 5) {
+            document.getElementById('bola').setAttribute('id', 'position5');
+        }
     }
     defesaMaquina();
 }
@@ -82,6 +86,10 @@ function apurarPlacarChuteJogador() {
 
     setTimeout(() => {
         document.getElementById("regra").innerHTML = "Escolha onde acha que vai ser o chute";
+        document.querySelector(`.bola`).setAttribute('src','assets/bola.png');
+        document.querySelector(`.bola`).setAttribute('id','bola');
+        document.querySelector(`.me`).setAttribute('id','position01');
+        document.querySelector(`.md`).setAttribute('id','position02');
     }, 1500);
 }
 
@@ -92,8 +100,17 @@ function chuteMaquina(gol) {
     chuteCPU = parseInt(localMaquina[maquina]);
     console.log("chuteCPU: " + chuteCPU);
     if (chuteCPU > 0 && chuteCPU < 6) {
-
-        document.getElementById(`position${chuteCPU}`).setAttribute('src', `assets/bola.png`);
+        if (chuteCPU == 1) {
+            document.getElementById('bola').setAttribute('id', 'position1');
+        } else if (chuteCPU == 2) {
+            document.getElementById('bola').setAttribute('id', 'position2');
+        } else if (chuteCPU == 3) {
+            document.getElementById('bola').setAttribute('id', 'position3');
+        } else if (chuteCPU == 4) {
+            document.getElementById('bola').setAttribute('id', 'position4');
+        } else if (chuteCPU == 5) {
+            document.getElementById('bola').setAttribute('id', 'position5');
+        }
 
         setTimeout(() => {
             document.getElementById(`position${chuteCPU}`).setAttribute('src', `assets/alvo${chuteCPU}.png`);
@@ -122,9 +139,6 @@ function defesaJogador(gol) {
         document.querySelector(".me").setAttribute('id', 'position5');
         document.querySelector(".md").setAttribute('id', 'position5');
     }
-    document.getElementById(chute).setAttribute('src', 'assets/bola.png');
-
-    setTimeout(() => { document.getElementById(chute).setAttribute('src', `assets/alvo${gol}.png`) }, 1500)
 
     setTimeout(() => {
         apurarPlacarChuteMaquina();
@@ -146,6 +160,10 @@ function apurarPlacarChuteMaquina() {
 
     setTimeout(() => {
         document.getElementById("regra").innerHTML = "Escolha onde deseja chutar";
+        document.querySelector(`.bola`).setAttribute('src','assets/bola.png');
+        document.querySelector(`.bola`).setAttribute('id','bola');
+        document.querySelector(`.me`).setAttribute('id','position01');
+        document.querySelector(`.md`).setAttribute('id','position02');
     }, 1500);
 }
 
@@ -155,7 +173,6 @@ function tecla_pressionada(event) {
     let tecla = event.which || event.keyCode;
     let meElements = document.querySelectorAll('.me');
     let mdElements = document.querySelectorAll('.md');
-
     document.querySelector('.me').setAttribute('id', 'position01');
     document.querySelector('.md').setAttribute('id', 'position02');
 
@@ -184,14 +201,12 @@ function tecla_pressionada(event) {
         }
 
         if (contador > 10) {
-            document.getElementById('regra').style.display='absolute'
-            document.getElementById('regra').style.top= '18vw'
-            document.getElementById('regra').style.left= '0vw'
-            document.getElementById('regra').innerHTML = 'FIM DE JOGO!';
+            document.getElementById('regra').style.display = 'absolute';
+            document.getElementById('regra').style.top = '18vw';
+            document.getElementById('regra').style.left = '0vw';
             setTimeout(fimDeJogo, 1500);
         }
     } else {
-        document.getElementById('bola').style.display = 'none';
         document.getElementById('regra').innerHTML = '';
     }
 }
