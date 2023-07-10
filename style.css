@@ -30,6 +30,9 @@ div#gol > h1#title{
     color:white;
     text-shadow: 2px 2px 2px black;
 }
+div#gol>img.bola{
+    z-index:2;
+}
 div#gol >img#bola{
     position: absolute;
     width: 8%;
@@ -70,7 +73,7 @@ div#gol >img#bola{
 }
 div#gol>img.alvo{
     width:5vw;
-    z-index:2;
+    z-index:3;
 }
 div#gol>img.none{
     display:none;
