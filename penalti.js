@@ -2,7 +2,10 @@ function fimDeJogo() {
     document.getElementById("regra").style.color = "black";
     document.getElementById("title").innerHTML = '';
     if (placarJogador == placarMaquina) {
-        document.getElementById('regra').innerHTML = 'FIM DE JOGO!<br/> O jogo terminou Empate!';
+        setTimeout(() => {
+            document.getElementById('regra').innerHTML = 'EMPATE!<br/>Vamos pros chutes alternados!';
+        }, 1000);
+        alternadas();
     } else if (placarJogador > placarMaquina) {
         document.getElementById('regra').innerHTML = 'FIM DE JOGO!<br/> Parabéns,você venceu!';
     } else {
@@ -81,15 +84,16 @@ function apurarPlacarChuteJogador() {
     } else {
         mensagem = "PRA FORA!!";
     }
-    document.getElementById("regra").innerHTML = mensagem;
-    document.getElementById("placar").innerHTML = `Player:${placarJogador} <br/> Maquina:${placarMaquina}`;
-
+    setTimeout(() => {
+        document.getElementById("regra").innerHTML = mensagem;
+        document.getElementById("placar").innerHTML = `Player:${placarJogador} <br/> Maquina:${placarMaquina}`;
+    }, 1500);
     setTimeout(() => {
         document.getElementById("regra").innerHTML = "Escolha onde acha que vai ser o chute";
-        document.querySelector(`.bola`).setAttribute('src','assets/bola.png');
-        document.querySelector(`.bola`).setAttribute('id','bola');
-        document.querySelector(`.me`).setAttribute('id','position01');
-        document.querySelector(`.md`).setAttribute('id','position02');
+        document.querySelector(`.bola`).setAttribute('src', 'assets/bola.png');
+        document.querySelector(`.bola`).setAttribute('id', 'bola');
+        document.querySelector(`.me`).setAttribute('id', 'position01');
+        document.querySelector(`.md`).setAttribute('id', 'position02');
     }, 1500);
 }
 
@@ -160,10 +164,10 @@ function apurarPlacarChuteMaquina() {
 
     setTimeout(() => {
         document.getElementById("regra").innerHTML = "Escolha onde deseja chutar";
-        document.querySelector(`.bola`).setAttribute('src','assets/bola.png');
-        document.querySelector(`.bola`).setAttribute('id','bola');
-        document.querySelector(`.me`).setAttribute('id','position01');
-        document.querySelector(`.md`).setAttribute('id','position02');
+        document.querySelector(`.bola`).setAttribute('src', 'assets/bola.png');
+        document.querySelector(`.bola`).setAttribute('id', 'bola');
+        document.querySelector(`.me`).setAttribute('id', 'position01');
+        document.querySelector(`.md`).setAttribute('id', 'position02');
     }, 1500);
 }
 
@@ -206,8 +210,44 @@ function tecla_pressionada(event) {
             document.getElementById('regra').style.left = '0vw';
             setTimeout(fimDeJogo, 1500);
         }
-    } else {
-        document.getElementById('regra').innerHTML = '';
+    } else if ((tecla < 49 || tecla > 53)&&event.key !== 'Enter') {
+        setTimeout(() => {
+            document.getElementById('regra').innerHTML = 'PRA FORA!';
+        }, 1000)
+    }
+
+    function alternadas() {
+        placarJogador = 0;
+        placarMaquina = 0;
+        contador = 0;
+        if (tecla >= 49 && tecla <= 53) {
+            gol = parseInt(event.key);
+
+            let mensagem = (contador % 2 !== 0) ? 'Escolha onde deseja chutar' : 'Escolha onde acha que vai ser o chute';
+            document.getElementById('regra').style.color = 'black';
+            document.getElementById('title').innerHTML = '';
+            document.getElementById('regra').innerHTML = mensagem;
+            
+
+            if (contador % 2 !== 0) {
+                chuteJogador(gol);
+                contador++;
+            } else {
+                chuteMaquina(gol);
+                contador++
+            }
+
+            if (placarJogador == placarMaquina + 2 || placarMaquina == placarJogador + 2) {
+                document.getElementById('regra').style.display = 'absolute';
+                document.getElementById('regra').style.top = '18vw';
+                document.getElementById('regra').style.left = '0vw';
+                setTimeout(fimDeJogo, 1500);
+            }
+        } else if (tecla < 49 || tecla > 53) {
+            setTimeout(() => {
+                document.getElementById('regra').innerHTML = 'PRA FORA!';
+            }, 1000)
+        }
     }
 }
 
