@@ -30,50 +30,55 @@ div#gol > h1#title{
     color:white;
     text-shadow: 2px 2px 2px black;
 }
-div#gol>img.bola{
-    z-index:2;
-}
 div#gol >img#bola{
     position: absolute;
     width: 8%;
     top:83%;
     left:45%;
+}
+div#gol>img.bola{
     z-index:2;
+    transition:ease-in-out 0.5s;
 }
 #position1{
     width: 5vw;
     position: absolute;
     top:6vw;
     left:18.2vw;
+    transition:ease-in-out 0.5s;
 }
 #position2{
     width: 5vw;
     position: absolute;
     top:29.7vw;
     left:18.2vw;
+    transition:ease-in-out 0.5s;
 }
 #position3{
     width: 5vw;
     position: absolute;
     top:6vw;
     left:75.3vw;
+    transition:ease-in-out 0.5s;
 }
 #position4{
     width: 5vw;
     position: absolute;
     top:29.7vw;
     left:75.3vw;
+    transition:ease-in-out 0.5s;
 }
 #position5{
     width: 5vw;
     position: absolute;
     top:18vw;
     left:48vw;
+    transition:ease-in-out 0.5s;
 
 }
 div#gol>img.alvo{
     width:5vw;
-    z-index:3;
+    z-index:2;
 }
 div#gol>img.none{
     display:none;
@@ -119,6 +124,7 @@ div#goleiro>img#corpo{
     top:27vw;
     left:40vw;
     z-index: 1;
+    transition:ease-in-out 0.5s;
 }
 
 #position02{
@@ -127,4 +133,5 @@ div#goleiro>img#corpo{
     top:27vw;
     left:53vw;
     z-index: 1;
+    transition:ease-in-out 0.5s
 }
